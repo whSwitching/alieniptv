@@ -30,13 +30,16 @@ function douyu($id) {
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 		$data = curl_exec($ch);
 		curl_close($ch);
-		$json = json_decode($data);
+		echo 'url='.$data;
+		/*
+                $json = json_decode($data);
 		$wasu = $json->data->hls_url;
 		if($type!='flv') {
 			$idn = basename(parse_url($wasu,PHP_URL_PATH));
 			$idns = explode('_',$idn);
 			$wasu = 'https://'.$ym.'/live/'.$idns[0].'.'.$type;
 		}
+		*/
 	}
 	header('location:'.$wasu);
 	exit;
